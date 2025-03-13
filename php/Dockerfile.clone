@@ -1,0 +1,11 @@
+FROM alpine/git
+
+# Creo el volumen para compartir en el docker-compose
+VOLUME /volumen
+
+# clono el proyecto de github en el volumen
+RUN git clone https://github.com/deaw-birt/UD4-despliegue-PHP.git /volumen
+
+# modifico el nombre de los scripts para que se ejecuten en el orden deseado
+RUN mv /volumen/mysql/crearBBDD.sql /volumen/mysql/01-crearBBDD.sql && \
+    mv /volumen/mysql/InsertarDatos.sql /volumen/mysql/02-InsertarDatos.sql

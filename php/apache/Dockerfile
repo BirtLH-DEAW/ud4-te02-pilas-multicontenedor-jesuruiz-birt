@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-RUN apt-get update && apt-get install -y apache2 \
+RUN apt-get update && apt-get install -y apache2 git curl \
     && apt-get -y install libapache2-mod-fcgid \
     && a2enmod proxy_fcgi
 
